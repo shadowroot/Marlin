@@ -1481,7 +1481,18 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -44, -14, 0 } //ORIGINAL: #define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+
+//https://www.thingiverse.com/thing:3003725
+/*
+Offsets
+These are the offsets for this mount - thanks dopesoner930 (for the original design) and danpeig for confirming the offsets:
+
+X_PROBE_OFFSET_FROM_EXTRUDER -42 // X offset: -left +right [of the nozzle]
+Y_PROBE_OFFSET_FROM_EXTRUDER -5 // Y offset: -front +behind [the nozzle]
+
+The z-offset will be different for every printer, and must be adjusted for any probe, but one datapoint was reported as -1.75mm, when using a BL-Touch v3.1 on an Ender3 Pro (so -1.75mm should be in the ballpark).
+*/
+#define NOZZLE_TO_PROBE_OFFSET { -42, -5, -1.75 } //ORIGINAL: #define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
