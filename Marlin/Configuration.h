@@ -1292,7 +1292,7 @@
  *      - normally-closed switches to GND and D32.
  *      - normally-open switches to 5V and D32.
  */
-#define Z_MIN_PROBE_PIN PB1 //ORIGINAL: //#define Z_MIN_PROBE_PIN 32 // Pin 32 is the RAMPS default
+//#define Z_MIN_PROBE_PIN PB1 //ORIGINAL: //#define Z_MIN_PROBE_PIN 32 // Pin 32 is the RAMPS default
 
 /**
  * Probe Type
@@ -1330,6 +1330,9 @@
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
 #define BLTOUCH //ORIGINAL: //#define BLTOUCH
+
+//Probably needed delay
+#define BLTOUCH_DELAY 500
 
 /**
  * MagLev V4 probe by MDD
@@ -1492,7 +1495,10 @@ Y_PROBE_OFFSET_FROM_EXTRUDER -5 // Y offset: -front +behind [the nozzle]
 
 The z-offset will be different for every printer, and must be adjusted for any probe, but one datapoint was reported as -1.75mm, when using a BL-Touch v3.1 on an Ender3 Pro (so -1.75mm should be in the ballpark).
 */
-#define NOZZLE_TO_PROBE_OFFSET { -42, -5, -1.75 } //ORIGINAL: #define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+//https://www.thingiverse.com/thing:3003725
+//#define NOZZLE_TO_PROBE_OFFSET { -42, -5, -1.75 } //ORIGINAL: #define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+
+#define NOZZLE_TO_PROBE_OFFSET { -42, -5, 0 } //ORIGINAL: #define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1703,8 +1709,11 @@ The z-offset will be different for every printer, and must be adjusted for any p
 // @section geometry
 
 // The size of the printable area
-#define X_BED_SIZE 235
-#define Y_BED_SIZE 235
+// #define X_BED_SIZE 235
+// #define Y_BED_SIZE 235
+
+#define X_BED_SIZE 220
+#define Y_BED_SIZE 220
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -1891,7 +1900,7 @@ The z-offset will be different for every printer, and must be adjusted for any p
  * these options to restore the prior leveling state or to always enable
  * leveling immediately after G28.
  */
-#define RESTORE_LEVELING_AFTER_G28
+//#define RESTORE_LEVELING_AFTER_G28
 //#define ENABLE_LEVELING_AFTER_G28
 
 /**
@@ -1958,7 +1967,7 @@ The z-offset will be different for every printer, and must be adjusted for any p
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 5 //ORIGINAL:   #define GRID_MAX_POINTS_X 3
+  #define GRID_MAX_POINTS_X 3 //ORIGINAL:   #define GRID_MAX_POINTS_X 3
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
@@ -2291,7 +2300,7 @@ The z-offset will be different for every printer, and must be adjusted for any p
  *   Caveats: The ending Z should be the same as starting Z.
  * Attention: EXPERIMENTAL. G-code arguments may change.
  */
-//#define NOZZLE_CLEAN_FEATURE
+#define NOZZLE_CLEAN_FEATURE
 
 #if ENABLED(NOZZLE_CLEAN_FEATURE)
   // Default number of pattern repetitions
