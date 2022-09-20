@@ -1498,7 +1498,7 @@ The z-offset will be different for every printer, and must be adjusted for any p
 //https://www.thingiverse.com/thing:3003725
 //#define NOZZLE_TO_PROBE_OFFSET { -42, -5, -1.75 } //ORIGINAL: #define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
 
-#define NOZZLE_TO_PROBE_OFFSET { -42, -5, 0 } //ORIGINAL: #define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { -42, -5, -3.2 } //ORIGINAL: #define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1709,11 +1709,11 @@ The z-offset will be different for every printer, and must be adjusted for any p
 // @section geometry
 
 // The size of the printable area
-// #define X_BED_SIZE 235
-// #define Y_BED_SIZE 235
+#define X_BED_SIZE 235
+#define Y_BED_SIZE 235
 
-#define X_BED_SIZE 220
-#define Y_BED_SIZE 220
+//#define X_BED_SIZE 220
+//#define Y_BED_SIZE 220
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -1795,8 +1795,8 @@ The z-offset will be different for every printer, and must be adjusted for any p
   #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
 
   #define FIL_RUNOUT_STATE     LOW        // Pin state indicating that filament is NOT present.
-  #define FIL_RUNOUT_PULLUP               // Use internal pullup for filament runout pins.
-  //#define FIL_RUNOUT_PULLDOWN           // Use internal pulldown for filament runout pins.
+  //#define FIL_RUNOUT_PULLUP               // Use internal pullup for filament runout pins.
+  #define FIL_RUNOUT_PULLDOWN           // Use internal pulldown for filament runout pins.
   //#define WATCH_ALL_RUNOUT_SENSORS      // Execute runout script on any triggering sensor, not only for the active extruder.
                                           // This is automatically enabled for MIXING_EXTRUDERs.
 
@@ -1967,7 +1967,7 @@ The z-offset will be different for every printer, and must be adjusted for any p
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 3 //ORIGINAL:   #define GRID_MAX_POINTS_X 3
+  #define GRID_MAX_POINTS_X 5 //ORIGINAL:   #define GRID_MAX_POINTS_X 3
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
